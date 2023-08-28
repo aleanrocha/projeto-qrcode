@@ -1,12 +1,18 @@
 @charset "UTF-8";
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --cor01: #fff;
+  --cor02: #485563;
+  --cor03: #29323c;
+  --border-color: #ccc;
+  --bg-qr: #48556365;;
+}
 body {
-  background: #0093E9 linear-gradient(160deg, #485563  0%, #29323c 100%);
+  background: var(--cor03) linear-gradient(160deg, var(--cor02)  0%, var(--cor03) 100%);
   font-family: 'Inter', sans-serif;
   display: flex;
   justify-content: center;
@@ -14,17 +20,12 @@ body {
   min-height: 100vh;
 }
 #container {
-  background-color: #fff;
+  background-color: var(--cor01);
   padding: 1.5rem;
   border-radius: 1rem;
   text-align: center;
   width: 95%;
   max-width: 420px;
-  height: 254px;
-  overflow: hidden;
-}
-#container.active {
-  height: 545px;
 }
 #qr-header {
   margin-bottom: 1.5rem;
@@ -34,44 +35,42 @@ body {
   font-size: 1.7rem;
 }
 #qr-header p {
-  color: #464545;
+  color: var(--cor02);
 }
 #qr-form input,
 #qr-form button {
   width: 100%;
   padding: 1rem;
-  margin-bottom: 1.5rem;
   border-radius: .3rem;
 }
 #qr-form input {
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   outline: none;
+  margin-bottom: 1rem;
 }
 #qr-form input:focus {
-  border-color: #485563;
+  border-color: var(--cor02);
 }
 #qr-form button {
   border: none;
   outline: none;
   cursor: pointer;
-  margin-bottom: 1.5rem;
-  background-color: #485563;
-  color: #fff;
+  background-color: var(--cor02);
+  color: var(--cor01);
   font-weight: 700;
   font-size: .9rem;
   transition: .3s;
 }        
-
 #qr-form button:hover {
-  background-color: #29323c;
+  background-color: var(--cor03);
 }
 #qr-code {
-  border: 1px solid #ccc;
   border-radius: .3rem;
-  padding: 2rem;
-  background-color: #48556365;
+  background-color: var(--bg-qr);
+  overflow: hidden;
+  height: 0;
+  transition: .3s;
   opacity: 0;
-  transition: .5s;
 }
 #qr-code img {
   width: 100%;
@@ -79,12 +78,8 @@ body {
 }
 #container.active #qr-code {
   opacity: 1;
-}
-@media screen and (max-width: 430px) {
-  #container {
-    height: 276px;
-  }
-  #container.active {
-    height: 564px;
-  }
+  height: auto;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
 }
