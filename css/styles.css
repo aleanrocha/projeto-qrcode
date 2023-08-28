@@ -66,11 +66,15 @@ body {
 }
 #qr-code {
   border-radius: .3rem;
-  background-color: var(--bg-qr);
   overflow: hidden;
   height: 0;
   transition: .3s;
   opacity: 0;
+  box-shadow: 0 0 1rem var(--bg-qr);
+  transition: .5s;
+}
+#qr-code:hover {
+  transform: scale(.95);
 }
 #qr-code img {
   width: 100%;
